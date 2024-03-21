@@ -5,7 +5,7 @@ Sub Formata()
 Attribute Formata.VB_ProcData.VB_Invoke_Func = "Project.NewMacros.Formata3"
 
    UserForm2.Show
-    ' Muda o diretÛrio para o especÌfico
+    ' Muda o diret√≥rio para o espec√≠fico
     'ChangeFileOpenDirectory "D:\Users\i1819708\Music\"
     ' Abre o arquivo escolhido no Form
     Documents.Open FileName:=z, _
@@ -15,9 +15,9 @@ Attribute Formata.VB_ProcData.VB_Invoke_Func = "Project.NewMacros.Formata3"
         wdOpenFormatAuto, XMLTransform:="", Encoding:=65001
               
         
-    ' Localiza a posiÁ„o do caracter "-"
+    ' Localiza a posi√ß√£o do caracter "-"
         testPos = InStr(1, z, "-")
-        testPos2 = InStr(1, z, ".")
+        testPos2 = InStr(1, z, ".txt")
         
         'MsgBox testPos
         'MsgBox testPos2
@@ -39,7 +39,7 @@ Attribute Formata.VB_ProcData.VB_Invoke_Func = "Project.NewMacros.Formata3"
        EmbedTrueTypeFonts:=False, SaveNativePictureFormat:=False, SaveFormsData _
        :=False, SaveAsAOCELetter:=False, CompatibilityMode:=15
        
-     ' Seleciona a primeira linha atÈ o fim e deleta
+     ' Seleciona a primeira linha at√© o fim e deleta
         Selection.EndKey Unit:=wdLine, Extend:=wdExtend
         Selection.Cut
            
@@ -49,17 +49,17 @@ Attribute Formata.VB_ProcData.VB_Invoke_Func = "Project.NewMacros.Formata3"
 End Sub
 
 Sub AdicCabec()
-'Declara as vari·veis
+'Declara as vari√°veis
 Dim Cabecintervalo As Range
 
-'A vari·vel Cabecintervalo È igual ao CabeÁalho do documento
+'A vari√°vel Cabecintervalo √© igual ao Cabe√ßalho do documento
 Set Cabecintervalo = ActiveDocument.Sections.Item(1).Headers(wdHeaderFooterPrimary).Range
 
-'Formata o Texto que foi adicionado no cabeÁalho do documento
+'Formata o Texto que foi adicionado no cabe√ßalho do documento
 
 With Cabecintervalo
 
-' Insere o nome da m˙sica no cabeÁalho e formata
+' Insere o nome da m√∫sica no cabe√ßalho e formata
     .Text = musica
     .ParagraphFormat.Alignment = wdAlignParagraphCenter
     .Font.Name = "Times New Roman"
@@ -73,7 +73,7 @@ End With
 
 'End With
 
-' Insere o nome do autor no cabeÁalho e formata
+' Insere o nome do autor no cabe√ßalho e formata
 With Cabecintervalo
    .Text = vbNewLine & autor & vbNewLine
    .Font.Name = "Times New Roman"
@@ -90,15 +90,15 @@ Public Function OpenFileDialog() As String
     Dim FileName As Variant
     ' Define o filtro de procura dos arquivos
     Filter = "Arquivos Wave (*.wav),*.wav,"
-    ' O filtro padr„o È *.*
+    ' O filtro padr√£o √© *.*
     FilterIndex = 3
-    ' Define o TÌtulo (Caption) da Tela
+    ' Define o T√≠tulo (Caption) da Tela
     Title = "Selecione um arquivo"
     ' Define o disco de procura
     ChDrive ("C")
     ChDir ("C:\")
     With Application
-        ' Abre a caixa de di·logo para seleÁ„o do arquivo com os par‚metros
+        ' Abre a caixa de di√°logo para sele√ß√£o do arquivo com os par√¢metros
         FileName = .GetOpenFilename(Filter, FilterIndex, Title)
         ' Reseta o Path
         ChDrive (Left(.DefaultFilePath, 1))
